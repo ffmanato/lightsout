@@ -132,8 +132,8 @@ class Field(ABC):
         return a == b
 
     def normalize(self, value: int) -> int:
-    """
-    ピボットを1に正規化する係数を返す。
-    GF(2)では常に1、GF(3)以上では inv(value) を返す。
-    """
-    return self.inv(value)
+        """
+        ピボットを1に正規化する係数を返す。
+        GF(2)では常に1、GF(3)以上では inv(value) を返す。
+        """
+        return self.inv(value)
