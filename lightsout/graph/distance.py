@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from geometry.base import Geometry
+from ..geometry.base import Geometry
 from .base import AdjacencyBuilder
 
 
