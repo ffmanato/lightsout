@@ -3,7 +3,7 @@ from __future__ import annotations
 import open3d as o3d
 import numpy as np
 
-from geometry.base import Geometry
+from ..geometry.base import Geometry
 
 
 class Open3DRenderer:
