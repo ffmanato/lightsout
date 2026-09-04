@@ -9,6 +9,18 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from .geometry.tetrahedron import Tetrahedron
+from .geometry.cube import Cube
+from .geometry.octahedron import Octahedron
+
+
+def list_presets() -> list[str]:
+    return [
+        'tetra_2',
+        'tetra_3',
+        'tetra_4',
+        'cube',
+        'octa',
+    ]
 
 
 def get_preset(name: str) -> Dict[str, Any]:
@@ -20,6 +32,8 @@ def get_preset(name: str) -> Dict[str, Any]:
         'tetra_2': {'type': 'tetrahedron', 'levels': 2, 'radius': 1.0},
         'tetra_3': {'type': 'tetrahedron', 'levels': 3, 'radius': 1.0},
         'tetra_4': {'type': 'tetrahedron', 'levels': 4, 'radius': 1.0},
+        'cube': {'type': 'cube', 'radius': 1.0},
+        'octa': {'type': 'octahedron', 'radius': 1.0},
     }
     return presets.get(name, presets['tetra_3'])
 
@@ -32,4 +46,8 @@ def build_geometry(preset: Dict[str, Any]):
     t = preset
     if t.get('type') == 'tetrahedron':
         return Tetrahedron(levels=int(t.get('levels', 3)), radius=float(t.get('radius', 1.0)))
+    if t.get('type') == 'cube':
+        return Cube(radius=float(t.get('radius', 1.0)))
+    if t.get('type') == 'octahedron':
+        return Octahedron(radius=float(t.get('radius', 1.0)))
     raise ValueError(f"Unknown preset type: {t.get('type')}")
