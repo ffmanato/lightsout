@@ -6,8 +6,13 @@ import numpy as np
 
 from .field.base import Field
 from .matrix import (
+    add_row_multiple,
     augment,
     copy_matrix,
+    pivot_columns_to_free_columns,
+    scale_row,
+    split_augmented,
+    swap_rows,
 )
 
 
